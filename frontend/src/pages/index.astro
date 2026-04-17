@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.jsx';
+import Hero from '../components/Hero.jsx';
+import FeatureGrid from '../components/FeatureGrid.jsx';
+import SolutionsCards from '../components/SolutionsCards.jsx';
+import SystemDiagram from '../components/SystemDiagram.jsx';
+import BenefitsList from '../components/BenefitsList.jsx';
+import Industries from '../components/Industries.jsx';
+import Integrations from '../components/Integrations.jsx';
+import Clients from '../components/Clients.jsx';
+import CTASection from '../components/CTASection.jsx';
+
+import { fetchSolutions, fetchSectors, fetchSuccessCases, fetchIntegrations, fetchFeatures } from '../lib/api.js';
+
+const solutions = await fetchSolutions();
+const sectors = await fetchSectors();
+const successCases = await fetchSuccessCases();
+const integrations = await fetchIntegrations();
+const features = await fetchFeatures();
+---
+
+<Layout title="BTECH - Transformación Digital Segura">
+	<Navbar client:load />
+    <main>
+        <Hero client:load />
+        <FeatureGrid featuresFromApi={features} client:visible />
+        <SolutionsCards solutionsFromApi={solutions} client:visible />
+        <SystemDiagram client:visible />
+        <BenefitsList client:visible />
+        <Industries sectorsFromApi={sectors} client:visible />
+        <Integrations integrationsFromApi={integrations} client:visible />
+        <Clients casesFromApi={successCases} client:visible />
+        <CTASection client:visible />
+    </main>
+</Layout>
+

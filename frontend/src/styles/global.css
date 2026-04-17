@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #0f121b;
+    --surface: #151826;
+    --card: #1c2133;
+    --primary: #18218c;
+    --accent: #2408c0;
+    --violet: #4e2bcd;
+  }
+
+  body {
+    @apply bg-bg text-gray-200 font-sans antialiased overflow-x-hidden min-h-screen selection:bg-accent selection:text-white;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+  }
+
+  h1 {
+    @apply text-[36px] md:text-[56px] leading-[44px] md:leading-[64px] font-bold tracking-[-0.02em];
+  }
+
+  h2 {
+    @apply text-[28px] md:text-[40px] leading-[36px] md:leading-[48px] font-semibold;
+  }
+
+  h3 {
+    @apply text-[24px] md:text-[28px] leading-[32px] md:leading-[36px] font-semibold;
+  }
+
+  h4 {
+    @apply text-[22px] leading-[30px] font-medium;
+  }
+
+  .body-large {
+    @apply text-[18px] leading-[28px] font-normal;
+  }
+
+  .body-small {
+    @apply text-[14px] leading-[22px] font-normal;
+  }
+
+  .caption {
+    @apply text-[12px] leading-[18px] font-normal;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-surface/50 backdrop-blur-xl border border-white/5;
+  }
+
+  .glow-hover {
+    @apply transition-shadow duration-300;
+  }
+  .glow-hover:hover {
+    box-shadow: 0 0 24px rgba(78, 43, 205, 0.4);
+  }
+
+  /* Hide scrollbar but keep scroll functionality */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
