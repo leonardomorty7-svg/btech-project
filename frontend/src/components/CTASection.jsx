@@ -22,11 +22,11 @@ export default function CTASection() {
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     className="text-center max-w-3xl mx-auto"
                 >
-                    <p className="text-violet text-sm font-bold tracking-[0.2em] uppercase mb-8">
+                    <p className="text-violet text-sm font-semibold tracking-[0.2em] uppercase mb-8">
                         Próximo paso
                     </p>
 
-                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.05] mb-8">
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight leading-[1.05] mb-8">
                         Lleva tu operación<br className="hidden md:block" /> al siguiente nivel
                     </h2>
 
@@ -35,7 +35,7 @@ export default function CTASection() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <button className="bg-[#4e2bcd] hover:bg-[#5d38e0] transition-colors duration-300 px-10 py-4 rounded-full text-white font-bold text-[17px] shadow-[0_0_40px_rgba(78,43,205,0.4)] hover:shadow-[0_0_60px_rgba(78,43,205,0.6)]">
+                        <button className="bg-[#4e2bcd] hover:bg-[#5d38e0] transition-colors duration-300 px-10 py-4 rounded-full text-white font-semibold text-[17px] shadow-[0_0_40px_rgba(78,43,205,0.4)] hover:shadow-[0_0_60px_rgba(78,43,205,0.6)]">
                             Solicitar demo
                         </button>
                         <button className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 px-10 py-4 rounded-full text-white font-semibold text-[17px] backdrop-blur-sm">
@@ -60,7 +60,7 @@ export default function CTASection() {
                                     className="h-5 w-auto object-contain"
                                     onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='inline'; }}
                                 />
-                                <span className="text-white font-bold text-lg tracking-wide hidden">B-TECH</span>
+                                <span className="text-white font-semibold text-lg tracking-wide hidden">B-TECH</span>
                             </a>
                             <p className="text-gray-600 text-[13px] max-w-[220px] text-center md:text-left leading-relaxed">
                                 Infraestructura tecnológica para entornos críticos.

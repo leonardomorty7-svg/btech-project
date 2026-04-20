@@ -20,7 +20,7 @@
   }
 
   h1 {
-    @apply text-[36px] md:text-[56px] leading-[44px] md:leading-[64px] font-bold tracking-[-0.02em];
+    @apply text-[36px] md:text-[56px] leading-[44px] md:leading-[64px] font-semibold tracking-[-0.02em];
   }
 
   h2 {

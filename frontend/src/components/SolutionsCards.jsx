@@ -7,28 +7,28 @@ const solutionsData = [
     {
         id: "firma",
         title: "Firma electrónica",
-        description: "Proceso de firma 100% legal, seguro y trazable para validar cualquier documento a distancia.",
+        description: "Validación legal y trazable, sin fricción.",
         icon: FileSignature,
         image: "/assets/solutions/firma.png"
     },
     {
         id: "gestion",
         title: "Gestión documental",
-        description: "Almacenamiento seguro, búsqueda inteligente y ciclo de vida automatizado.",
+        description: "Acceso, control y automatización en un solo flujo.",
         icon: Folder,
         image: "/assets/solutions/gestion.png"
     },
     {
         id: "bpm",
         title: "Automatización BPM",
-        description: "Orquesta tareas y conecta equipos para agilizar tus flujos organizacionales.",
+        description: "Orquesta procesos sin intervención manual.",
         icon: Settings,
         image: "/assets/solutions/bpm.png"
     },
     {
         id: "integraciones",
         title: "Integraciones",
-        description: "Conectores nativos para sistemas core como SAP, Salesforce y Microsoft 365.",
+        description: "Conecta tu ecosistema sin reemplazar sistemas.",
         icon: Puzzle,
         image: "/assets/solutions/integraciones.png"
     }
@@ -79,10 +79,12 @@ export default function SolutionsCards({ solutionsFromApi }) {
         offset: ["start start", "end end"]
     });
 
+    const totalSteps = displayData.length + 1;
+
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
         const index = Math.min(
-            Math.max(Math.floor(latest * displayData.length), 0),
-            displayData.length - 1
+            Math.max(Math.floor(latest * totalSteps), 0),
+            totalSteps - 1
         );
         if (index !== activeIndex) {
             setScrollDirection(index > activeIndex ? 1 : -1);
@@ -91,7 +93,7 @@ export default function SolutionsCards({ solutionsFromApi }) {
     });
 
     return (
-        <section ref={containerRef} id="soluciones" className="relative z-10 w-full bg-[#03010C]" style={{ height: `${displayData.length * 100}vh` }}>
+        <section ref={containerRef} id="soluciones" className="relative z-10 w-full bg-[#03010C]" style={{ height: `${totalSteps * 100}vh` }}>
             <div className="sticky top-0 h-screen w-full overflow-hidden pointer-events-none">
 
                 {/* ── GLOBAL SECTION BACKGROUND — single source of ambient atmosphere ── */}
@@ -109,58 +111,104 @@ export default function SolutionsCards({ solutionsFromApi }) {
                     />
                 </div>
 
-                {/* PERSISTENT HEADER */}
-                <div className="absolute top-32 left-0 right-0 z-20 pointer-events-auto text-center px-6">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Soluciones diseñadas <br className="hidden md:block" /> para el mundo real.</h2>
-                    <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">Herramientas modulares que se integran en tu ecosistema para resolver problemas complejos de forma sencilla.</p>
-                </div>
-
-                <div className="absolute inset-0 pt-32 pointer-events-auto">
+                {/* SLIDE CONTENT AREA */}
+                <div className="absolute inset-0 pointer-events-auto">
                     <AnimatePresence mode="wait" custom={scrollDirection}>
                         <motion.div
-                            key={displayData[activeIndex].id}
+                            key={activeIndex === 0 ? "intro" : displayData[activeIndex - 1].id}
                             custom={scrollDirection}
                             variants={slideVariants}
                             initial="initial"
                             animate="animate"
                             exit="exit"
-                            transition={{ duration: 0.7, ease: "easeInOut" }}
-                            className="absolute inset-0 w-full h-full flex flex-col justify-center max-w-7xl px-6 mx-auto pt-28"
+                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                            className="absolute inset-0 w-full h-full flex flex-col justify-center items-center px-6"
                         >
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
-                                {/* LEFT: Text Content */}
-                                <div className="w-full">
-                                    <div className="mb-6 inline-flex p-4 rounded-2xl bg-surface/50 border border-white/5 text-violet">
-                                        {(() => {
-                                            const Icon = displayData[activeIndex].icon;
-                                            return <Icon size={40} />;
-                                        })()}
-                                    </div>
-                                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight leading-tight">
-                                        {displayData[activeIndex].title}
+                            {activeIndex === 0 ? (
+                                /* ── SLIDE 0: INTRO NARRATIVE (FULL SCREEN) ── */
+                                <div className="text-center w-full" style={{ maxWidth: '1100px' }}>
+                                    <h2
+                                        className="text-white font-semibold tracking-tight"
+                                        style={{ 
+                                            fontSize: 'clamp(48px, 6vw, 84px)', 
+                                            lineHeight: 1.05, 
+                                            letterSpacing: '-0.04em',
+                                            marginBottom: '32px' 
+                                        }}
+                                    >
+                                        Soluciones modulares<br />para operaciones críticas
                                     </h2>
-                                    <p className="text-lg md:text-xl text-gray-400 max-w-lg mb-8 leading-relaxed">
-                                        {displayData[activeIndex].description}
+                                    <p
+                                        className="text-gray-400 font-medium"
+                                        style={{ 
+                                            fontSize: 'clamp(20px, 2vw, 24px)', 
+                                            opacity: 0.8,
+                                            marginBottom: '48px',
+                                            letterSpacing: '-0.01em'
+                                        }}
+                                    >
+                                        Automatiza, integra y escala sin fricción
                                     </p>
-                                    
-                                    <button className="flex items-center gap-3 text-violet font-semibold text-lg hover:text-white transition-colors group">
-                                        Explorar solución 
-                                        <ArrowRight className="group-hover:translate-x-2 transition-transform" />
-                                    </button>
+                                    <ul className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+                                        {[
+                                            'Centraliza información crítica',
+                                            'Automatiza procesos complejos',
+                                            'Integra sistemas sin fricción',
+                                        ].map((item) => (
+                                            <li
+                                                key={item}
+                                                className="flex items-center gap-2.5 text-sm md:text-base font-medium tracking-wide"
+                                                style={{ color: 'rgba(255,255,255,0.45)' }}
+                                            >
+                                                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#4e2bcd', display: 'inline-block', flexShrink: 0 }} />
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
+                            ) : (
+                                /* ── SLIDES 1-4: PRODUCT SOLUTIONS ── */
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full max-w-7xl mx-auto pt-24 lg:pt-0">
+                                    {/* LEFT: Text Content */}
+                                    <div className="w-full">
+                                        <div className="mb-6 inline-flex p-4 rounded-2xl bg-surface/50 border border-white/5 text-violet">
+                                            {(() => {
+                                                const Icon = displayData[activeIndex - 1].icon;
+                                                return <Icon size={40} />;
+                                            })()}
+                                        </div>
+                                        <h2
+                                            className="text-4xl md:text-5xl lg:text-7xl font-semibold text-white tracking-tight"
+                                            style={{ lineHeight: 1.1, marginBottom: '16px', letterSpacing: '-0.03em' }}
+                                        >
+                                            {displayData[activeIndex - 1].title}
+                                        </h2>
+                                        <p
+                                            className="text-lg md:text-xl text-gray-400"
+                                            style={{ maxWidth: '420px', marginBottom: '32px', lineHeight: 1.6 }}
+                                        >
+                                            {displayData[activeIndex - 1].description}
+                                        </p>
+                                        
+                                        <button className="flex items-center gap-3 text-violet font-semibold text-lg hover:text-white transition-colors group">
+                                            Explorar solución 
+                                            <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+                                        </button>
+                                    </div>
 
-                                {/* RIGHT: Animated Visual — no frame, embedded in background, nudged to optical center */}
-                                <div className="w-full min-h-[280px] lg:min-h-[460px] relative flex items-center">
-                                    <SolutionVisual type={displayData[activeIndex].id} />
+                                    {/* RIGHT: Visual Content */}
+                                    <div className="w-full min-h-[320px] lg:min-h-[520px] relative flex items-center" style={{ filter: 'drop-shadow(0 0 48px rgba(78,43,205,0.22))' }}>
+                                        <SolutionVisual type={displayData[activeIndex - 1].id} />
 
-                                    {/* Slide counter */}
-                                    <div className="absolute bottom-6 left-6 z-10">
-                                        <div className="glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest text-violet uppercase border-violet/20 bg-[#03010C]/60 backdrop-blur-md">
-                                            0{activeIndex + 1} / 0{displayData.length}
+                                        {/* Slide counter */}
+                                        <div className="absolute bottom-6 left-6 z-10">
+                                            <div className="glass px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest text-violet uppercase border-violet/20 bg-[#03010C]/60 backdrop-blur-md">
+                                                0{activeIndex} / 0{displayData.length}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            )}
                         </motion.div>
                     </AnimatePresence>
                 </div>

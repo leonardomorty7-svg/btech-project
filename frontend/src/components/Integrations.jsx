@@ -104,35 +104,41 @@ export default function Integrations({ integrationsFromApi }) {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                    <p className="text-violet text-sm font-bold tracking-[0.2em] uppercase mb-6">
+                    <p className="text-violet text-sm font-semibold tracking-[0.2em] uppercase mb-6">
                         Integraciones nativas
                     </p>
-                    <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tight text-white leading-tight mb-8">
+                    <h2 
+                        className="font-bold tracking-tight text-white mb-8"
+                        style={{ fontSize: 'clamp(44px, 5vw, 68px)', lineHeight: 1.05, letterSpacing: '-0.03em' }}
+                    >
                         Conecta tu<br className="hidden md:block" /> ecosistema
                     </h2>
-                    <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-md">
+                    <p 
+                        className="text-gray-400 leading-relaxed max-w-md"
+                        style={{ fontSize: 'clamp(18px, 1.6vw, 21px)', opacity: 0.75 }}
+                    >
                         Nuestra plataforma se conecta nativamente con las herramientas enterprise que ya utilizas, sin reemplazarlas.
                     </p>
 
                     {/* Subtle stat row */}
-                    <div className="mt-12 flex gap-12">
+                    <div className="mt-16 flex gap-14 md:gap-16">
                         <div>
-                            <div className="text-3xl font-bold text-white mb-1">40+</div>
-                            <div className="text-gray-500 text-sm">Conectores listos</div>
+                            <div className="text-3xl md:text-4xl font-bold text-white mb-1">40+</div>
+                            <div className="text-gray-500 text-sm font-medium">Conectores listos</div>
                         </div>
                         <div>
-                            <div className="text-3xl font-bold text-white mb-1">REST</div>
-                            <div className="text-gray-500 text-sm">API estándar</div>
+                            <div className="text-3xl md:text-4xl font-bold text-white mb-1">REST</div>
+                            <div className="text-gray-500 text-sm font-medium">API estándar</div>
                         </div>
                         <div>
-                            <div className="text-3xl font-bold text-white mb-1">ISO</div>
-                            <div className="text-gray-500 text-sm">Certificado</div>
+                            <div className="text-3xl md:text-4xl font-bold text-white mb-1">ISO</div>
+                            <div className="text-gray-500 text-sm font-medium">Certificado</div>
                         </div>
                     </div>
                 </motion.div>
 
                 {/* RIGHT: Network visualization */}
-                <div className="relative w-full aspect-square lg:aspect-auto lg:h-[500px]">
+                <div className="relative w-full aspect-square lg:aspect-auto lg:h-[500px]" style={{ transform: 'scale(1.12)', transformOrigin: 'center' }}>
                     
                     {/* SVG network lines + particles */}
                     <NetworkLines activeIdx={activeIdx} />
@@ -166,7 +172,7 @@ export default function Integrations({ integrationsFromApi }) {
                                     }}
                                 >
                                     <span
-                                        className="text-[15px] font-bold tracking-wide transition-colors duration-400"
+                                        className="text-[15px] font-semibold tracking-wide transition-colors duration-400"
                                         style={{ color: isActive ? integ.color : '#6b7280' }}
                                     >
                                         {integ.abbr}
@@ -190,7 +196,7 @@ export default function Integrations({ integrationsFromApi }) {
                             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                             className="w-[68px] h-[68px] rounded-full bg-[#4e2bcd] flex items-center justify-center border-2 border-violet/50"
                         >
-                            <span className="text-white text-[13px] font-bold tracking-wider">BT</span>
+                            <span className="text-white text-[13px] font-semibold tracking-wider">BT</span>
                         </motion.div>
                     </div>
                 </div>

@@ -58,7 +58,14 @@ export default function SystemDiagram() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="text-center mb-28"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white tracking-tight">
+                    <h2 
+                        className="font-bold text-white mb-6"
+                        style={{ 
+                            fontSize: 'clamp(48px, 5.5vw, 76px)', 
+                            lineHeight: 1.05, 
+                            letterSpacing: '-0.045em' 
+                        }}
+                    >
                         ¿Cómo funciona?
                     </h2>
                     <p className="text-gray-400 max-w-xl mx-auto text-lg">
@@ -111,7 +118,7 @@ export default function SystemDiagram() {
                                     style={{ width: `${100 / steps.length}%` }}
                                 >
                                     {/* Number */}
-                                    <div className={`text-[13px] font-mono font-bold tracking-[0.25em] mb-3 transition-colors duration-700
+                                    <div className={`text-[13px] font-mono font-semibold tracking-[0.25em] mb-3 transition-colors duration-700
                                         ${isActive ? 'text-violet' : 'text-gray-700'}`}>
                                         {step.label}
                                     </div>
@@ -132,8 +139,15 @@ export default function SystemDiagram() {
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className={`text-[20px] font-bold mb-2 transition-colors duration-700
-                                        ${isActive ? 'text-white' : 'text-gray-500'}`}>
+                                    <h3 
+                                        className={`font-semibold mb-3 transition-colors duration-700 transition-all`}
+                                        style={{ 
+                                            fontSize: '28px', 
+                                            lineHeight: 1.15, 
+                                            letterSpacing: '-0.025em',
+                                            color: isActive ? 'white' : 'rgba(255,255,255,0.25)' 
+                                        }}
+                                    >
                                         {step.title}
                                     </h3>
 

@@ -4,36 +4,36 @@ import { Landmark, Briefcase, Scale, Building2 } from 'lucide-react';
 const defaultSectors = [
     {
         title: "Gobierno",
-        desc: "Modernización del estado y servicios digitales al ciudadano.",
+        desc: "Digitalización del estado y servicios al ciudadano",
         icon: Landmark,
-        accent: "from-[#1a0a6e]/60 to-transparent"
+        accent: "from-[#7850ff]/20 to-transparent"
     },
     {
         title: "Finanzas",
-        desc: "Core bancario, onboarding digital y prevención de fraudes.",
+        desc: "Core bancario, onboarding digital y antifraude",
         icon: Briefcase,
-        accent: "from-[#0d1a5e]/60 to-transparent"
+        accent: "from-[#4e2bcd]/15 to-transparent"
     },
     {
         title: "Justicia",
-        desc: "Expedientes electrónicos y audiencias virtuales integradas.",
+        desc: "Expedientes electrónicos y audiencias virtuales",
         icon: Scale,
-        accent: "from-[#1a0a6e]/60 to-transparent"
+        accent: "from-[#7850ff]/15 to-transparent"
     },
     {
         title: "Salud",
-        desc: "Historia clínica unificada, integración con actores del ecosistema.",
+        desc: "Historia clínica unificada e interoperabilidad",
         icon: Building2,
-        accent: "from-[#0d1a5e]/60 to-transparent"
+        accent: "from-[#4e2bcd]/15 to-transparent"
     }
 ];
 
 const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 24 },
     visible: (i) => ({
         opacity: 1,
         y: 0,
-        transition: { duration: 0.5, ease: "easeOut", delay: i * 0.1 }
+        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }
     })
 };
 
@@ -44,40 +44,53 @@ export default function Industries({ sectorsFromApi }) {
         title: item.attributes?.name || item.name || defaultSectors[idx]?.title || "Sector",
         desc: item.attributes?.description || item.description || defaultSectors[idx]?.desc || "",
         icon: defaultSectors[idx]?.icon || Landmark,
-        accent: defaultSectors[idx]?.accent || "from-[#1a0a6e]/60 to-transparent"
+        accent: defaultSectors[idx]?.accent || "from-[#7850ff]/15 to-transparent"
     })) : defaultSectors;
 
-    // Ensure we always render 4 items for a clean 2x2 grid
+    // Ensure we render 4 items
     const gridItems = [...items, ...defaultSectors].slice(0, 4);
 
     return (
-        <section id="sectores" className="min-h-screen bg-[#03010C] flex items-center justify-center px-6 py-20 relative z-10 border-t border-white/5 overflow-hidden">
+        <section id="sectores" className="relative bg-[#03010C] flex items-center justify-center px-6 py-32 md:py-48 z-10 border-t border-white/5 overflow-hidden">
             
-            {/* Ambient background glow */}
-            <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#1a0a6e] rounded-full blur-[160px] opacity-20 pointer-events-none" />
-            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#0d1a5e] rounded-full blur-[140px] opacity-15 pointer-events-none" />
+            {/* ── Ambient background depth ── */}
+            <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#1a0a6e] rounded-full blur-[180px] opacity-[0.14] pointer-events-none" />
+            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#0d1a5e] rounded-full blur-[160px] opacity-[0.12] pointer-events-none" />
 
             <div className="max-w-6xl mx-auto w-full relative z-10">
-                {/* Header */}
+                {/* ── Header ── */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="mb-20 text-center"
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="mb-28 md:mb-36 text-center"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-5">
+                    <h2 
+                        className="font-bold text-white mb-6"
+                        style={{ fontSize: 'clamp(44px, 6vw, 84px)', lineHeight: 1.05, letterSpacing: '-0.04em' }}
+                    >
                         Sectores especializados
                     </h2>
-                    <p className="text-gray-400 text-lg md:text-xl max-w-xl mx-auto">
+                    <p 
+                        className="text-gray-400 font-medium md:whitespace-nowrap md:max-w-none mx-auto"
+                        style={{ 
+                            fontSize: 'clamp(16px, 1.5vw, 22px)', 
+                            opacity: 0.75, 
+                            lineHeight: 1.4,
+                            letterSpacing: '-0.01em'
+                        }}
+                    >
                         Experiencia probada en las industrias más reguladas y críticas.
                     </p>
                 </motion.div>
 
-                {/* 2x2 Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5">
+                {/* ── 2x2 Individual Cards Grid ── */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     {gridItems.map((sec, idx) => {
                         const Icon = sec.icon;
+                        const isMainHighlight = idx === 0;
+
                         return (
                             <motion.div
                                 key={idx}
@@ -85,32 +98,38 @@ export default function Industries({ sectorsFromApi }) {
                                 variants={itemVariants}
                                 initial="hidden"
                                 whileInView="visible"
-                                viewport={{ once: true }}
-                                className="group relative bg-[#03010C] p-12 md:p-16 cursor-default overflow-hidden transition-all duration-500 hover:bg-[#080514]"
+                                viewport={{ once: true, margin: "-50px" }}
+                                className={`group relative rounded-3xl p-10 md:p-14 cursor-default overflow-hidden border transition-all duration-500
+                                    ${isMainHighlight 
+                                        ? 'bg-white/[0.04] border-white/[0.06]' 
+                                        : 'bg-white/[0.02] border-white/[0.04]'
+                                    } hover:bg-[#7850ff14] hover:border-[#7850ff40] hover:-translate-y-1.5`}
                             >
-                                {/* Hover gradient wash */}
-                                <div className={`absolute inset-0 bg-gradient-to-br ${sec.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
+                                {/* Active gradient glow on hover */}
+                                <div className={`absolute inset-0 bg-gradient-to-br ${sec.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
                                 
-                                {/* Content */}
                                 <div className="relative z-10">
-                                    {/* Icon — minimal, floating */}
-                                    <div className="mb-8 w-12 h-12 flex items-center justify-center rounded-xl border border-violet/20 bg-violet/10 text-violet group-hover:border-violet/50 group-hover:bg-violet/20 transition-all duration-500">
-                                        <Icon size={22} />
+                                    {/* Icon — floating, elevated */}
+                                    <div className="mb-10 w-14 h-14 flex items-center justify-center rounded-2xl border border-violet/20 bg-white/5 text-violet group-hover:scale-110 group-hover:border-violet/40 group-hover:bg-violet/10 group-hover:shadow-[0_0_24px_rgba(120,80,255,0.2)] transition-all duration-500">
+                                        <Icon size={26} />
                                     </div>
 
-                                    {/* Sector name */}
-                                    <h3 className="text-white text-2xl md:text-3xl font-bold mb-3 tracking-tight group-hover:text-white transition-colors duration-300">
+                                    {/* Sector name — Stronger hierarchy */}
+                                    <h3 
+                                        className="text-white font-semibold mb-4 tracking-tight"
+                                        style={{ fontSize: 'clamp(28px, 2.5vw, 40px)', lineHeight: 1.15 }}
+                                    >
                                         {sec.title}
                                     </h3>
 
-                                    {/* One-line description */}
-                                    <p className="text-gray-500 text-[15px] md:text-[16px] leading-relaxed max-w-xs group-hover:text-gray-400 transition-colors duration-300">
+                                    {/* Sharp one-line description */}
+                                    <p className="text-gray-500 text-lg md:text-xl font-medium leading-tight max-w-sm group-hover:text-gray-300 transition-colors duration-500">
                                         {sec.desc}
                                     </p>
                                 </div>
 
-                                {/* Subtle corner accent */}
-                                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-violet/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                                {/* Decorative flare */}
+                                <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-violet/5 rounded-full blur-[48px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                             </motion.div>
                         );
                     })}

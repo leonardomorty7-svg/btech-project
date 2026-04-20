@@ -12,7 +12,7 @@ export default {
 				violet: '#4e2bcd',
 			},
 			fontFamily: {
-				sans: ['"Just Sans"', 'Outfit', 'Inter', 'sans-serif'],
+				sans: ['"Plus Jakarta Sans"', 'Outfit', 'Inter', 'sans-serif'],
 				mono: ['Fira Code', 'monospace'],
 			},
 			borderRadius: {

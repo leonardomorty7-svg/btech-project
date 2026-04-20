@@ -1,197 +1,122 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Layers, Cpu, Activity, Workflow } from 'lucide-react';
 
 const defaultFeatures = [
     {
         title: "Centralización",
-        desc: "Unifica toda la información dispersa en un repositorio único y seguro."
+        desc: "Una única fuente de verdad para toda tu operación digital",
+        icon: Layers
     },
     {
         title: "Automatización",
-        desc: "Optimiza procesos manuales y flujos de trabajo con motores BPM avanzados."
+        desc: "Procesos automatizados sin intervención manual",
+        icon: Cpu
     },
     {
         title: "Trazabilidad",
-        desc: "Control total sobre auditorías y cambios en el sistema con un registro inmutable."
+        desc: "Visibilidad total en tiempo real",
+        icon: Activity
     },
     {
         title: "Integración",
-        desc: "Conecta todos tus sistemas y bases de datos legacy a una capa moderna."
+        desc: "Sistemas conectados en una arquitectura unificada",
+        icon: Workflow
     }
 ];
 
+const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.1 } }
+};
+
 const itemVariants = {
-    hidden: { opacity: 0, y: 28 },
-    visible: (i) => ({
+    hidden: { opacity: 0, y: 20 },
+    visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }
-    })
+        transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    }
 };
 
 export default function FeatureGrid({ featuresFromApi }) {
-    const [activeIndex, setActiveIndex] = useState(0);
-
     const hasApiData = featuresFromApi && featuresFromApi.length > 0;
     const items = hasApiData ? featuresFromApi.map((item, idx) => ({
         title: item.attributes?.title || item.title || defaultFeatures[idx]?.title || "",
-        desc:  item.attributes?.description || item.description || defaultFeatures[idx]?.desc || ""
+        desc:  item.attributes?.description || item.description || defaultFeatures[idx]?.desc || "",
+        icon: defaultFeatures[idx]?.icon || Layers
     })) : defaultFeatures;
 
     return (
         <section
             id="que-hacemos"
-            className="min-h-[100vh] py-32 px-6 flex items-center justify-center relative text-gray-900 overflow-hidden"
-            style={{ background: 'linear-gradient(160deg, #F8FAFF 0%, #EEF1FF 55%, #E8EDFF 100%)' }}
+            className="py-40 md:py-60 px-6 bg-[#F9FBFF] relative overflow-hidden"
         >
-            {/* ── Background atmosphere ── */}
-
-            {/* Soft radial glow — top center, very diffused */}
-            <div
-                className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[80%] h-[60%] rounded-full pointer-events-none"
-                style={{ background: 'radial-gradient(ellipse, rgba(78,43,205,0.07) 0%, transparent 70%)' }}
+            {/* Ambient light wash */}
+            <div 
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: 'radial-gradient(circle at 50% -10%, #E0E7FF 0%, transparent 60%)', opacity: 0.4 }}
             />
-
-            {/* Bottom-left secondary glow */}
-            <div
-                className="absolute bottom-[-5%] left-[-5%] w-[45%] h-[50%] rounded-full pointer-events-none"
-                style={{ background: 'radial-gradient(ellipse, rgba(36,8,192,0.05) 0%, transparent 70%)' }}
-            />
-
-            {/* Subtle dot grain texture */}
-            <div
-                className="absolute inset-0 pointer-events-none opacity-[0.35]"
-                style={{
-                    backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(78,43,205,0.12) 1px, transparent 0)',
-                    backgroundSize: '32px 32px'
-                }}
-            />
-
-            {/* Top edge fade to connect smoothly from Hero dark */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#4e2bcd]/20 to-transparent" />
-
-            <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col justify-center">
-
-                {/* ── Header ── */}
+            
+            <div className="max-w-7xl mx-auto relative z-10">
+                {/* ── Header — Editorial & Command ── */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-                    className="mb-20 text-center"
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-center mb-32 md:mb-44"
                 >
-                    {/* Eyebrow */}
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6
-                        border border-[#4e2bcd]/20 bg-[#4e2bcd]/5 backdrop-blur-sm">
-                        <div className="w-1 h-1 rounded-full bg-[#4e2bcd]" />
-                        <span className="text-[11px] font-bold text-[#4e2bcd] tracking-[0.2em] uppercase">
-                            Capacidades core
-                        </span>
-                    </div>
-
-                    <h2 className="text-4xl md:text-5xl font-bold mb-5 tracking-tight text-gray-900">
-                        ¿Qué hacemos?
+                    <h2 
+                        className="font-bold text-gray-900 mb-8 lg:whitespace-nowrap"
+                        style={{ fontSize: 'clamp(44px, 6vw, 84px)', lineHeight: 1, letterSpacing: '-0.04em' }}
+                    >
+                        La base de una operación digital real
                     </h2>
-                    <p className="text-[17px] md:text-[18px] text-gray-500 max-w-xl mx-auto leading-relaxed">
-                        Fundamentos sólidos para estructurar una transformación tecnológica sin fricción, adaptada al mundo real.
+                    <p className="text-gray-500 text-lg md:text-xl lg:whitespace-nowrap opacity-80 leading-relaxed font-medium">
+                        Centraliza, automatiza y controla cada proceso con una arquitectura modular y escalable.
                     </p>
                 </motion.div>
 
-                {/* ── 2×2 Tech-light grid ── */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {/* ── 4-Column Feature Strip ── */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-20"
+                >
                     {items.map((feat, index) => {
-                        const isActive = index === activeIndex;
-                        const numberStr = `0${index + 1}`;
-
+                        const Icon = feat.icon;
                         return (
                             <motion.div
                                 key={index}
-                                custom={index}
                                 variants={itemVariants}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                whileHover={{ y: -3, transition: { duration: 0.25, ease: 'easeOut' } }}
-                                onMouseEnter={() => setActiveIndex(index)}
-                                onClick={() => setActiveIndex(index)}
-                                className="relative cursor-pointer overflow-hidden rounded-2xl p-8 transition-all duration-400"
-                                style={{
-                                    background: isActive
-                                        ? 'rgba(255, 255, 255, 0.85)'
-                                        : 'rgba(255, 255, 255, 0.45)',
-                                    border: isActive
-                                        ? '1px solid rgba(78, 43, 205, 0.22)'
-                                        : '1px solid rgba(78, 43, 205, 0.09)',
-                                    boxShadow: isActive
-                                        ? '0 4px 32px rgba(78,43,205,0.10), 0 1px 0 rgba(255,255,255,0.9) inset'
-                                        : '0 2px 12px rgba(78,43,205,0.04)',
-                                    backdropFilter: 'blur(12px)',
-                                    transition: 'background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease'
-                                }}
+                                className="group flex flex-col items-center text-center transition-all duration-500 cursor-default hover:-translate-y-0.5"
                             >
-                                {/* Large ghost number — behind content */}
-                                <div
-                                    className="absolute right-5 top-3 font-black font-mono tracking-tighter leading-none select-none pointer-events-none transition-all duration-500"
-                                    style={{
-                                        fontSize: 'clamp(80px, 9vw, 110px)',
-                                        color: isActive
-                                            ? 'rgba(78, 43, 205, 0.07)'
-                                            : 'rgba(78, 43, 205, 0.04)',
-                                        lineHeight: 1,
-                                    }}
+                                {/* Minimalist Icon — Aligned on top axis */}
+                                <div className="mb-[16px] p-2 transition-all duration-500 min-h-[64px] flex items-center justify-center">
+                                    <Icon 
+                                        className="w-10 h-10 md:w-12 md:h-12 text-gray-400/80 transition-colors duration-500 group-hover:text-violet" 
+                                        strokeWidth={1.2} 
+                                    />
+                                </div>
+
+                                {/* Title — High Contrast & Semibold */}
+                                <h3 
+                                    className="text-gray-900 font-semibold tracking-tight mb-[12px] transition-colors duration-300" 
+                                    style={{ fontSize: 'clamp(24px, 2.2vw, 32px)', lineHeight: 1.1 }}
                                 >
-                                    {numberStr}
-                                </div>
-
-                                {/* Active left accent bar */}
-                                <div
-                                    className="absolute left-0 top-8 bottom-8 w-[3px] rounded-full transition-all duration-500"
-                                    style={{
-                                        background: isActive ? '#4e2bcd' : 'transparent',
-                                        boxShadow: isActive ? '0 0 12px rgba(78,43,205,0.5)' : 'none',
-                                        opacity: isActive ? 1 : 0
-                                    }}
-                                />
-
-                                {/* Content */}
-                                <div className="relative z-10">
-                                    {/* Number label with glow dot */}
-                                    <div className="flex items-center gap-2 mb-5">
-                                        <div
-                                            className="w-1.5 h-1.5 rounded-full transition-all duration-400"
-                                            style={{
-                                                background: isActive ? '#4e2bcd' : '#c4b5fd',
-                                                boxShadow: isActive ? '0 0 6px rgba(78,43,205,0.6)' : 'none'
-                                            }}
-                                        />
-                                        <span
-                                            className="text-[11px] font-bold font-mono tracking-[0.22em] transition-colors duration-400"
-                                            style={{ color: isActive ? '#4e2bcd' : '#9ca3af' }}
-                                        >
-                                            {numberStr}
-                                        </span>
-                                    </div>
-
-                                    {/* Title */}
-                                    <h3
-                                        className="text-[22px] md:text-[24px] font-bold mb-3 leading-snug tracking-tight transition-all duration-400"
-                                        style={{ color: isActive ? '#0f0a1e' : '#374151' }}
-                                    >
-                                        {feat.title}
-                                    </h3>
-
-                                    {/* Description */}
-                                    <p
-                                        className="text-[15px] leading-relaxed line-clamp-2 transition-colors duration-400"
-                                        style={{ color: isActive ? '#4b5563' : '#6b7280', maxWidth: '88%' }}
-                                    >
-                                        {feat.desc}
-                                    </p>
-                                </div>
+                                    {feat.title}
+                                </h3>
+                                
+                                {/* Description — Regular Gray / Centered and contained */}
+                                <p className="text-gray-500 text-base md:text-lg font-medium opacity-75 max-w-[240px] leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
+                                    {feat.desc}
+                                </p>
                             </motion.div>
                         );
                     })}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

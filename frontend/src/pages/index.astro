@@ -10,6 +10,7 @@ import Industries from '../components/Industries.jsx';
 import Integrations from '../components/Integrations.jsx';
 import Clients from '../components/Clients.jsx';
 import CTASection from '../components/CTASection.jsx';
+import HeroStatement from '../components/HeroStatement.jsx';
 
 import { fetchSolutions, fetchSectors, fetchSuccessCases, fetchIntegrations, fetchFeatures } from '../lib/api.js';
 
@@ -24,6 +25,7 @@ const features = await fetchFeatures();
 	<Navbar client:load />
     <main>
         <Hero client:load />
+        <HeroStatement client:visible />
         <FeatureGrid featuresFromApi={features} client:visible />
         <SolutionsCards solutionsFromApi={solutions} client:visible />
         <SystemDiagram client:visible />

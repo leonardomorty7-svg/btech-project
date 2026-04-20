@@ -11,7 +11,7 @@ function VisualCanvas({ children }) {
             {/* Combined transform: slight upward nudge to align with text optical center + 15% scale boost */}
             <div
                 className="w-full"
-                style={{ transform: 'translateY(-4%) scale(1.15)', transformOrigin: 'center center' }}
+                style={{ transform: 'translateY(-4%) scale(1.20)', transformOrigin: 'center center' }}
             >
                 {children}
             </div>
@@ -31,7 +31,7 @@ function FirmaVisual() {
                 viewBox="0 0 330 140"
                 className="w-full"
                 fill="none"
-                style={{ filter: 'drop-shadow(0 0 18px rgba(78,43,205,0.35))' }}
+                style={{ filter: 'drop-shadow(0 0 24px rgba(78,43,205,0.50))' }}
             >
                 {/* Faint base trail */}
                 <path d={strokePath} stroke="rgba(255,255,255,0.05)" strokeWidth="2" strokeLinecap="round" />
@@ -104,7 +104,7 @@ function DocVisual() {
                 viewBox="0 0 330 175"
                 className="w-full"
                 fill="none"
-                style={{ filter: 'drop-shadow(0 0 16px rgba(36,8,192,0.4))' }}
+                style={{ filter: 'drop-shadow(0 0 22px rgba(36,8,192,0.55))' }}
             >
                 {/* Connection lines */}
                 {docEdges.map(([a, b], i) => (
@@ -174,7 +174,7 @@ function BpmVisual() {
                 viewBox="0 0 330 145"
                 className="w-full"
                 fill="none"
-                style={{ filter: 'drop-shadow(0 0 14px rgba(78,43,205,0.3))' }}
+                style={{ filter: 'drop-shadow(0 0 22px rgba(78,43,205,0.45))' }}
             >
                 {/* Background flow lines */}
                 {bpmEdges.map((edge, i) => (
@@ -253,7 +253,7 @@ function IntegVisual() {
                 viewBox="0 0 330 175"
                 className="w-full"
                 fill="none"
-                style={{ filter: 'drop-shadow(0 0 18px rgba(78,43,205,0.35))' }}
+                style={{ filter: 'drop-shadow(0 0 26px rgba(78,43,205,0.52))' }}
             >
                 {/* Spoke lines */}
                 {integNodes.slice(1).map((n, i) => (
