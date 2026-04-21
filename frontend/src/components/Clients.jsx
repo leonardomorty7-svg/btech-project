@@ -46,16 +46,13 @@ export default function Clients() {
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     className="mb-24 md:mb-32 lg:max-w-none"
                 >
-                    <span className="text-violet text-xs font-bold tracking-[0.3em] uppercase mb-6 block">
+                    <p className="text-violet text-xs font-bold tracking-[0.3em] uppercase mb-6 block">
                         Confían en nosotros
-                    </span>
-                    <h2 
-                        className="text-gray-900 font-bold tracking-tight mb-8 lg:whitespace-nowrap"
-                        style={{ fontSize: 'clamp(38px, 5vw, 72px)', lineHeight: 1.1, letterSpacing: '-0.04em' }}
-                    >
+                    </p>
+                    <h2 className="text-gray-900 mb-8 lg:whitespace-nowrap">
                         Organizaciones que operan con B-TECH.
                     </h2>
-                    <p className="text-gray-600 text-lg md:text-xl font-medium max-w-xl lg:max-w-none lg:whitespace-nowrap opacity-80 leading-relaxed">
+                    <p className="opacity-80 lg:whitespace-nowrap">
                         Infraestructura digital implementada en entidades públicas y privadas de alta exigencia.
                     </p>
                 </motion.div>

@@ -26,11 +26,11 @@ export default function CTASection() {
                         Próximo paso
                     </p>
 
-                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight leading-[1.05] mb-8">
+                    <h2 className="text-white mb-8">
                         Lleva tu operación<br className="hidden md:block" /> al siguiente nivel
                     </h2>
 
-                    <p className="text-gray-400 text-xl md:text-2xl leading-relaxed max-w-xl mx-auto mb-14">
+                    <p className="opacity-80 md:text-2xl mb-14 mx-auto max-w-xl">
                         Únete a las organizaciones que ya transforman su gestión con infraestructura tecnológica de clase enterprise.
                     </p>
 

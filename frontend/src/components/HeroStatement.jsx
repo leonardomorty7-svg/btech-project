@@ -28,19 +28,13 @@ export default function HeroStatement() {
                     viewport={{ once: true, margin: '-80px' }}
                     transition={{
                         duration: 0.9,
-                        ease: [0.16, 1, 0.3, 1],  /* custom spring-like cubic-bezier */
+                        ease: [0.16, 1, 0.3, 1],
                     }}
-                    className="text-white font-semibold"
-                    style={{
-                        fontSize: 'clamp(36px, 5vw, 86px)',
-                        lineHeight: 1.1,
-                        letterSpacing: '-0.025em',
-                        margin: 0,
-                    }}
+                    className="text-white"
                 >
-                    <span style={{ display: 'block', whiteSpace: 'nowrap' }}>Centraliza tu información,</span>
-                    <span style={{ display: 'block', whiteSpace: 'nowrap' }}>automatiza procesos y asegura</span>
-                    <span style={{ display: 'block', whiteSpace: 'nowrap' }}>cada operación crítica.</span>
+                    <span className="block whitespace-nowrap">Centraliza tu información,</span>
+                    <span className="block whitespace-nowrap">automatiza procesos y asegura</span>
+                    <span className="block whitespace-nowrap">cada operación crítica.</span>
                 </motion.h2>
             </div>
         </section>

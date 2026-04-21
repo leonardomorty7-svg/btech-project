@@ -66,21 +66,10 @@ export default function Industries({ sectorsFromApi }) {
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     className="mb-28 md:mb-36 text-center"
                 >
-                    <h2 
-                        className="font-bold text-white mb-6"
-                        style={{ fontSize: 'clamp(44px, 6vw, 84px)', lineHeight: 1.05, letterSpacing: '-0.04em' }}
-                    >
+                    <h2 className="text-white mb-6">
                         Sectores especializados
                     </h2>
-                    <p 
-                        className="text-gray-400 font-medium md:whitespace-nowrap md:max-w-none mx-auto"
-                        style={{ 
-                            fontSize: 'clamp(16px, 1.5vw, 22px)', 
-                            opacity: 0.75, 
-                            lineHeight: 1.4,
-                            letterSpacing: '-0.01em'
-                        }}
-                    >
+                    <p className="opacity-75 md:whitespace-nowrap md:max-w-none mx-auto">
                         Experiencia probada en las industrias más reguladas y críticas.
                     </p>
                 </motion.div>
@@ -115,15 +104,12 @@ export default function Industries({ sectorsFromApi }) {
                                     </div>
 
                                     {/* Sector name — Stronger hierarchy */}
-                                    <h3 
-                                        className="text-white font-semibold mb-4 tracking-tight"
-                                        style={{ fontSize: 'clamp(28px, 2.5vw, 40px)', lineHeight: 1.15 }}
-                                    >
+                                    <h3 className="text-white mb-4">
                                         {sec.title}
                                     </h3>
 
                                     {/* Sharp one-line description */}
-                                    <p className="text-gray-500 text-lg md:text-xl font-medium leading-tight max-w-sm group-hover:text-gray-300 transition-colors duration-500">
+                                    <p className="opacity-75 max-w-sm group-hover:text-gray-300 transition-colors duration-500">
                                         {sec.desc}
                                     </p>
                                 </div>

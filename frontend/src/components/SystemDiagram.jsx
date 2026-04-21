@@ -58,14 +58,7 @@ export default function SystemDiagram() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="text-center mb-28"
                 >
-                    <h2 
-                        className="font-bold text-white mb-6"
-                        style={{ 
-                            fontSize: 'clamp(48px, 5.5vw, 76px)', 
-                            lineHeight: 1.05, 
-                            letterSpacing: '-0.045em' 
-                        }}
-                    >
+                    <h2 className="text-white mb-6">
                         ¿Cómo funciona?
                     </h2>
                     <p className="text-gray-400 max-w-xl mx-auto text-lg">
@@ -140,11 +133,8 @@ export default function SystemDiagram() {
 
                                     {/* Title */}
                                     <h3 
-                                        className={`font-semibold mb-3 transition-colors duration-700 transition-all`}
+                                        className={`mb-3 transition-colors duration-700 transition-all`}
                                         style={{ 
-                                            fontSize: '28px', 
-                                            lineHeight: 1.15, 
-                                            letterSpacing: '-0.025em',
                                             color: isActive ? 'white' : 'rgba(255,255,255,0.25)' 
                                         }}
                                     >

@@ -15,36 +15,48 @@
   body {
     @apply bg-bg text-gray-200 font-sans antialiased overflow-x-hidden min-h-screen selection:bg-accent selection:text-white;
     font-size: 16px;
-    line-height: 26px;
+    line-height: 1.6;
     font-weight: 400;
   }
 
   h1 {
-    @apply text-[36px] md:text-[56px] leading-[44px] md:leading-[64px] font-semibold tracking-[-0.02em];
+    @apply font-semibold tracking-tight;
+    font-size: clamp(40px, 8vw, 86px);
+    line-height: 1.1;
   }
 
   h2 {
-    @apply text-[28px] md:text-[40px] leading-[36px] md:leading-[48px] font-semibold;
+    @apply font-semibold tracking-tight;
+    font-size: clamp(32px, 6vw, 68px);
+    line-height: 1.15;
   }
 
   h3 {
-    @apply text-[24px] md:text-[28px] leading-[32px] md:leading-[36px] font-semibold;
+    @apply font-semibold tracking-tight;
+    font-size: clamp(24px, 4vw, 36px);
+    line-height: 1.2;
   }
 
   h4 {
     @apply text-[22px] leading-[30px] font-medium;
   }
 
+  p {
+    @apply text-gray-400 font-normal;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
   .body-large {
-    @apply text-[18px] leading-[28px] font-normal;
+    @apply text-[20px] leading-[1.6] font-normal;
   }
 
   .body-small {
-    @apply text-[14px] leading-[22px] font-normal;
+    @apply text-[14px] leading-[1.6] font-normal;
   }
 
   .caption {
-    @apply text-[12px] leading-[18px] font-normal;
+    @apply text-[12px] leading-[1.5] font-normal tracking-wide;
   }
 }
 

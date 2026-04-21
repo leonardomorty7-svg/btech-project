@@ -24,17 +24,9 @@ export default function Hero({
             <div className="w-full px-6 md:px-12 lg:px-16 xl:px-24 relative z-10 flex flex-col items-center text-center">
 
                 <div style={{ maxWidth: '1400px', width: '100%', marginBottom: '52px' }}>
-                    <h1
-                        className="text-white font-semibold"
-                        style={{
-                            fontSize: 'clamp(36px, 5vw, 86px)',
-                            lineHeight: 1.1,
-                            letterSpacing: '-0.025em',
-                            margin: 0,
-                        }}
-                    >
-                        <span style={{ display: 'block', whiteSpace: 'nowrap' }}>Transformamos la operación</span>
-                        <span style={{ display: 'block', whiteSpace: 'nowrap' }}>digital de tu organización.</span>
+                    <h1 className="text-white">
+                        <span className="block whitespace-nowrap">Transformamos la operación</span>
+                        <span className="block whitespace-nowrap">digital de tu organización.</span>
                     </h1>
                 </div>
 

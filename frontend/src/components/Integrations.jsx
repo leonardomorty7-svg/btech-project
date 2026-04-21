@@ -107,16 +107,10 @@ export default function Integrations({ integrationsFromApi }) {
                     <p className="text-violet text-sm font-semibold tracking-[0.2em] uppercase mb-6">
                         Integraciones nativas
                     </p>
-                    <h2 
-                        className="font-bold tracking-tight text-white mb-8"
-                        style={{ fontSize: 'clamp(44px, 5vw, 68px)', lineHeight: 1.05, letterSpacing: '-0.03em' }}
-                    >
+                    <h2 className="text-white mb-8">
                         Conecta tu<br className="hidden md:block" /> ecosistema
                     </h2>
-                    <p 
-                        className="text-gray-400 leading-relaxed max-w-md"
-                        style={{ fontSize: 'clamp(18px, 1.6vw, 21px)', opacity: 0.75 }}
-                    >
+                    <p className="opacity-75 leading-relaxed max-w-md">
                         Nuestra plataforma se conecta nativamente con las herramientas enterprise que ya utilizas, sin reemplazarlas.
                     </p>
 

@@ -127,26 +127,10 @@ export default function SolutionsCards({ solutionsFromApi }) {
                             {activeIndex === 0 ? (
                                 /* ── SLIDE 0: INTRO NARRATIVE (FULL SCREEN) ── */
                                 <div className="text-center w-full" style={{ maxWidth: '1100px' }}>
-                                    <h2
-                                        className="text-white font-semibold tracking-tight"
-                                        style={{ 
-                                            fontSize: 'clamp(48px, 6vw, 84px)', 
-                                            lineHeight: 1.05, 
-                                            letterSpacing: '-0.04em',
-                                            marginBottom: '32px' 
-                                        }}
-                                    >
+                                    <h2 className="text-white mb-8">
                                         Soluciones modulares<br />para operaciones críticas
                                     </h2>
-                                    <p
-                                        className="text-gray-400 font-medium"
-                                        style={{ 
-                                            fontSize: 'clamp(20px, 2vw, 24px)', 
-                                            opacity: 0.8,
-                                            marginBottom: '48px',
-                                            letterSpacing: '-0.01em'
-                                        }}
-                                    >
+                                    <p className="opacity-80 mb-12">
                                         Automatiza, integra y escala sin fricción
                                     </p>
                                     <ul className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
@@ -177,16 +161,10 @@ export default function SolutionsCards({ solutionsFromApi }) {
                                                 return <Icon size={40} />;
                                             })()}
                                         </div>
-                                        <h2
-                                            className="text-4xl md:text-5xl lg:text-7xl font-semibold text-white tracking-tight"
-                                            style={{ lineHeight: 1.1, marginBottom: '16px', letterSpacing: '-0.03em' }}
-                                        >
+                                        <h3 className="text-white mb-4">
                                             {displayData[activeIndex - 1].title}
-                                        </h2>
-                                        <p
-                                            className="text-lg md:text-xl text-gray-400"
-                                            style={{ maxWidth: '420px', marginBottom: '32px', lineHeight: 1.6 }}
-                                        >
+                                        </h3>
+                                        <p className="mb-8" style={{ maxWidth: '420px' }}>
                                             {displayData[activeIndex - 1].description}
                                         </p>
                                         

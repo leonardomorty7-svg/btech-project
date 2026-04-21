@@ -66,13 +66,10 @@ export default function FeatureGrid({ featuresFromApi }) {
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     className="text-center mb-32 md:mb-44"
                 >
-                    <h2 
-                        className="font-bold text-gray-900 mb-8 lg:whitespace-nowrap"
-                        style={{ fontSize: 'clamp(44px, 6vw, 84px)', lineHeight: 1, letterSpacing: '-0.04em' }}
-                    >
+                    <h2 className="text-gray-900 mb-8 lg:whitespace-nowrap">
                         La base de una operación digital real
                     </h2>
-                    <p className="text-gray-500 text-lg md:text-xl lg:whitespace-nowrap opacity-80 leading-relaxed font-medium">
+                    <p className="md:whitespace-nowrap md:max-w-none mx-auto opacity-80 font-medium">
                         Centraliza, automatiza y controla cada proceso con una arquitectura modular y escalable.
                     </p>
                 </motion.div>
@@ -102,15 +99,12 @@ export default function FeatureGrid({ featuresFromApi }) {
                                 </div>
 
                                 {/* Title — High Contrast & Semibold */}
-                                <h3 
-                                    className="text-gray-900 font-semibold tracking-tight mb-[12px] transition-colors duration-300" 
-                                    style={{ fontSize: 'clamp(24px, 2.2vw, 32px)', lineHeight: 1.1 }}
-                                >
+                                <h3 className="text-gray-900 mb-[12px] transition-colors duration-300">
                                     {feat.title}
                                 </h3>
                                 
                                 {/* Description — Regular Gray / Centered and contained */}
-                                <p className="text-gray-500 text-base md:text-lg font-medium opacity-75 max-w-[240px] leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
+                                <p className="opacity-75 max-w-[240px] group-hover:text-gray-600 transition-colors duration-300">
                                     {feat.desc}
                                 </p>
                             </motion.div>

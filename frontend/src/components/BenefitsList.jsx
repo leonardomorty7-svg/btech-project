@@ -104,16 +104,10 @@ export default function BenefitsList() {
                         >
                             {narrativeSteps[activeIndex].type === "intro" ? (
                                 <>
-                                    <h2 
-                                        className="text-white font-bold tracking-tight mb-8"
-                                        style={{ fontSize: 'clamp(44px, 6vw, 84px)', lineHeight: 1.05, letterSpacing: '-0.04em' }}
-                                    >
+                                    <h2 className="text-white mb-8">
                                         {narrativeSteps[activeIndex].title}
                                     </h2>
-                                    <p 
-                                        className="text-gray-400 font-medium max-w-xl mx-auto"
-                                        style={{ fontSize: 'clamp(18px, 1.8vw, 22px)', opacity: 0.8, lineHeight: 1.5 }}
-                                    >
+                                    <p className="opacity-80 max-w-xl mx-auto">
                                         {narrativeSteps[activeIndex].subtitle}
                                     </p>
                                 </>
@@ -125,13 +119,10 @@ export default function BenefitsList() {
                                     >
                                         {narrativeSteps[activeIndex].metric}
                                     </div>
-                                    <h3 
-                                        className="text-white font-semibold tracking-tight mb-6"
-                                        style={{ fontSize: 'clamp(28px, 3vw, 44px)', letterSpacing: '-0.02em' }}
-                                    >
+                                    <h3 className="text-white mb-6">
                                         {narrativeSteps[activeIndex].title}
                                     </h3>
-                                    <p className="text-gray-500 text-lg md:text-xl max-w-md mx-auto leading-relaxed opacity-60">
+                                    <p className="opacity-60 max-w-md mx-auto">
                                         {narrativeSteps[activeIndex].desc}
                                     </p>
                                 </>
