@@ -80,4 +80,42 @@
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
+  /* ── Performance Optimized Animations for LIGHT version ── */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-light-fade {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  .animate-light-slide {
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 }
+  /* Marquee Animation (Right to Left - Seamless) */
+  @keyframes marqueeRtoL {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    display: flex;
+    white-space: nowrap;
+    width: max-content;
+    animation: marqueeRtoL var(--duration, 30s) linear infinite;
+    will-change: transform;
+  }
+
+  .pause-on-hover:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+
+  .mask-fade-edges {
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  }

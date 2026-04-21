@@ -69,7 +69,7 @@ export default function Industries({ sectorsFromApi }) {
                     <h2 className="text-white mb-6">
                         Sectores especializados
                     </h2>
-                    <p className="opacity-75 md:whitespace-nowrap md:max-w-none mx-auto">
+                    <p className="text-white/80 md:whitespace-nowrap md:max-w-none mx-auto text-[18px]">
                         Experiencia probada en las industrias más reguladas y críticas.
                     </p>
                 </motion.div>
@@ -109,7 +109,7 @@ export default function Industries({ sectorsFromApi }) {
                                     </h3>
 
                                     {/* Sharp one-line description */}
-                                    <p className="opacity-75 max-w-sm group-hover:text-gray-300 transition-colors duration-500">
+                                    <p className="text-white/80 text-[18px] max-w-sm group-hover:text-white transition-colors duration-500">
                                         {sec.desc}
                                     </p>
                                 </div>

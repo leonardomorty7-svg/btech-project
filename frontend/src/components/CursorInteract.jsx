@@ -48,10 +48,9 @@ export default function CursorInteract() {
             // Check for interactive elements
             const activeEl = target.closest('button, a, [role="button"], .group, .card');
             config.current.isOverInteractive = !!activeEl;
-
-            // Context: Hide in light sections
-            const isLightSection = target.closest('#casos') || target.closest('.bg-white') || target.closest('section[class*="bg-[#F8F9FC]"]');
-            config.current.isActive = !isLightSection;
+            
+            // Glow is now active globally for visual consistency
+            config.current.isActive = true;
         };
 
         window.addEventListener('resize', resize);

@@ -61,7 +61,7 @@ export default function SystemDiagram() {
                     <h2 className="text-white mb-6">
                         ¿Cómo funciona?
                     </h2>
-                    <p className="text-gray-400 max-w-xl mx-auto text-lg">
+                    <p className="text-white/90 max-w-xl mx-auto text-[18px]">
                         Arquitectura por capas diseñada para escalar con tu organización.
                     </p>
                 </motion.div>
@@ -142,8 +142,8 @@ export default function SystemDiagram() {
                                     </h3>
 
                                     {/* Description — single constrained line */}
-                                    <p className={`text-[14px] leading-snug max-w-[140px] transition-colors duration-700
-                                        ${isActive ? 'text-gray-400' : 'text-gray-700'}`}>
+                                    <p className={`text-[18px] leading-snug max-w-[180px] transition-colors duration-700
+                                        ${isActive ? 'text-white/80' : 'text-white/20'}`}>
                                         {step.desc}
                                     </p>
                                 </motion.div>

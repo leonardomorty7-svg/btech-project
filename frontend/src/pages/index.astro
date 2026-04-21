@@ -8,7 +8,7 @@ import SystemDiagram from '../components/SystemDiagram.jsx';
 import BenefitsList from '../components/BenefitsList.jsx';
 import Industries from '../components/Industries.jsx';
 import Integrations from '../components/Integrations.jsx';
-import Clients from '../components/Clients.jsx';
+import ClientsLight from '../components/light/ClientsLight.jsx';
 import CTASection from '../components/CTASection.jsx';
 import HeroStatement from '../components/HeroStatement.jsx';
 
@@ -32,8 +32,7 @@ const features = await fetchFeatures();
         <BenefitsList client:visible />
         <Industries sectorsFromApi={sectors} client:visible />
         <Integrations integrationsFromApi={integrations} client:visible />
-        <Clients casesFromApi={successCases} client:visible />
+        <ClientsLight variant="embedded" client:visible />
         <CTASection client:visible />
     </main>
 </Layout>
-

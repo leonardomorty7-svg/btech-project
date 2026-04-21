@@ -4,8 +4,8 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-
 const narrativeSteps = [
     {
         type: "intro",
-        title: "Beneficios tangibles desde el día uno",
-        subtitle: "Transformar tu arquitectura tecnológica impacta directamente en el ROI de tu operación."
+        title: "Beneficios tangibles desde el primer día",
+        subtitle: "Tu arquitectura tecnológica impacta directamente el ROI operativo"
     },
     {
         type: "metric",
@@ -90,7 +90,7 @@ export default function BenefitsList() {
                     />
                 </div>
 
-                <div className="relative z-10 w-full max-w-5xl px-6">
+                <div className="relative z-10 w-full px-6">
                     <AnimatePresence mode="wait" custom={scrollDirection}>
                         <motion.div
                             key={activeIndex}
@@ -103,14 +103,16 @@ export default function BenefitsList() {
                             className="flex flex-col items-center text-center"
                         >
                             {narrativeSteps[activeIndex].type === "intro" ? (
-                                <>
-                                    <h2 className="text-white mb-8">
-                                        {narrativeSteps[activeIndex].title}
-                                    </h2>
-                                    <p className="opacity-80 max-w-xl mx-auto">
-                                        {narrativeSteps[activeIndex].subtitle}
-                                    </p>
-                                </>
+                                <div className="w-full flex justify-center px-6">
+                                    <div className="inline-block text-center">
+                                        <h2 className="text-white mb-8 lg:whitespace-nowrap">
+                                            {narrativeSteps[activeIndex].title}
+                                        </h2>
+                                        <p className="text-white/90 text-[18px] lg:whitespace-nowrap mt-4">
+                                            {narrativeSteps[activeIndex].subtitle}
+                                        </p>
+                                    </div>
+                                </div>
                             ) : (
                                 <>
                                     <div 
@@ -122,7 +124,7 @@ export default function BenefitsList() {
                                     <h3 className="text-white mb-6">
                                         {narrativeSteps[activeIndex].title}
                                     </h3>
-                                    <p className="opacity-60 max-w-md mx-auto">
+                                    <p className="text-white/80 text-[18px] max-w-md mx-auto">
                                         {narrativeSteps[activeIndex].desc}
                                     </p>
                                 </>

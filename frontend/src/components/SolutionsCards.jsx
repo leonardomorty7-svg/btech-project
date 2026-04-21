@@ -130,7 +130,7 @@ export default function SolutionsCards({ solutionsFromApi }) {
                                     <h2 className="text-white mb-8">
                                         Soluciones modulares<br />para operaciones críticas
                                     </h2>
-                                    <p className="opacity-80 mb-12">
+                                    <p className="text-white/90 text-[18px] mb-12">
                                         Automatiza, integra y escala sin fricción
                                     </p>
                                     <ul className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
@@ -142,7 +142,7 @@ export default function SolutionsCards({ solutionsFromApi }) {
                                             <li
                                                 key={item}
                                                 className="flex items-center gap-2.5 text-sm md:text-base font-medium tracking-wide"
-                                                style={{ color: 'rgba(255,255,255,0.45)' }}
+                                                style={{ color: 'rgba(255,255,255,0.6)' }}
                                             >
                                                 <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#4e2bcd', display: 'inline-block', flexShrink: 0 }} />
                                                 {item}
@@ -164,7 +164,7 @@ export default function SolutionsCards({ solutionsFromApi }) {
                                         <h3 className="text-white mb-4">
                                             {displayData[activeIndex - 1].title}
                                         </h3>
-                                        <p className="mb-8" style={{ maxWidth: '420px' }}>
+                                        <p className="text-white/80 text-[18px] mb-8" style={{ maxWidth: '420px' }}>
                                             {displayData[activeIndex - 1].description}
                                         </p>
                                         

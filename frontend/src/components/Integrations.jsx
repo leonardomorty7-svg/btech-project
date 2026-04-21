@@ -110,7 +110,7 @@ export default function Integrations({ integrationsFromApi }) {
                     <h2 className="text-white mb-8">
                         Conecta tu<br className="hidden md:block" /> ecosistema
                     </h2>
-                    <p className="opacity-75 leading-relaxed max-w-md">
+                    <p className="text-white/80 leading-relaxed max-w-md text-[18px]">
                         Nuestra plataforma se conecta nativamente con las herramientas enterprise que ya utilizas, sin reemplazarlas.
                     </p>
 
@@ -118,15 +118,15 @@ export default function Integrations({ integrationsFromApi }) {
                     <div className="mt-16 flex gap-14 md:gap-16">
                         <div>
                             <div className="text-3xl md:text-4xl font-bold text-white mb-1">40+</div>
-                            <div className="text-gray-500 text-sm font-medium">Conectores listos</div>
+                            <div className="text-white/60 text-sm font-medium">Conectores listos</div>
                         </div>
                         <div>
                             <div className="text-3xl md:text-4xl font-bold text-white mb-1">REST</div>
-                            <div className="text-gray-500 text-sm font-medium">API estándar</div>
+                            <div className="text-white/60 text-sm font-medium">API estándar</div>
                         </div>
                         <div>
                             <div className="text-3xl md:text-4xl font-bold text-white mb-1">ISO</div>
-                            <div className="text-gray-500 text-sm font-medium">Certificado</div>
+                            <div className="text-white/60 text-sm font-medium">Certificado</div>
                         </div>
                     </div>
                 </motion.div>

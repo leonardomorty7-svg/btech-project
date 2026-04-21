@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion';
-import AnimatedLinesBackground from './AnimatedLinesBackground';
+import React from 'react';
+import HeroBackgroundLight from './HeroBackgroundLight';
+import AnimatedLinesLight from './AnimatedLinesLight';
 
-export default function Hero({
+export default function HeroLight({
     ctaPrimary = "Solicitar demo",
     ctaSecondary = "Hablar con un experto",
 }) {
@@ -9,19 +10,17 @@ export default function Hero({
         <section className="relative h-screen bg-[#03010C] flex flex-col items-center justify-center overflow-hidden">
 
             {/* ── Background system ── */}
-            <div className="absolute top-[10%] left-[20%] w-[60%] h-[60%] bg-[#2408c0] rounded-full blur-[160px] opacity-25 pointer-events-none z-0" />
-            <div className="absolute top-[-10%] right-[10%] w-[45%] h-[55%] bg-[#4e2bcd] rounded-full blur-[140px] opacity-20 pointer-events-none z-0" />
-            
-            {/* Soft bottom fade — merges into HeroStatement */}
-            <div className="absolute bottom-0 left-0 w-full h-[30%] bg-gradient-to-t from-[#03010C]/60 to-transparent pointer-events-none z-0" />
-
-            {/* Animated data lines */}
             <div className="absolute inset-0 z-0">
-                <AnimatedLinesBackground theme="dark" />
+                <HeroBackgroundLight />
+            </div>
+
+            {/* Animated data lines (static in light version) */}
+            <div className="absolute inset-0 z-0 opacity-40">
+                <AnimatedLinesLight />
             </div>
 
             {/* ── Content ── */}
-            <div className="w-full px-6 md:px-12 lg:px-16 xl:px-24 relative z-10 flex flex-col items-center text-center">
+            <div className="w-full px-6 md:px-12 lg:px-16 xl:px-24 relative z-10 flex flex-col items-center text-center animate-light-slide">
 
                 <div style={{ maxWidth: '1400px', width: '100%', marginBottom: '52px' }}>
                     <h1 className="text-white">
@@ -32,7 +31,7 @@ export default function Hero({
 
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row gap-5 justify-center">
-                    <button className="group/btn bg-[#4e2bcd] hover:bg-[#5d38e0] transition-all duration-300 px-12 py-5 rounded-full text-white font-bold text-[18px] shadow-[0_0_50px_rgba(78,43,205,0.4)] hover:shadow-[0_0_70px_rgba(78,43,205,0.6)] hover:scale-[1.04] w-full sm:w-auto cursor-pointer relative overflow-hidden">
+                    <button className="group/btn bg-[#4e2bcd] hover:bg-[#5d38e0] transition-all duration-300 px-12 py-5 rounded-full text-white font-bold text-[18px] shadow-[0_0_50px_rgba(78,43,205,0.3)] hover:shadow-[0_0_70px_rgba(78,43,205,0.5)] w-full sm:w-auto cursor-pointer relative overflow-hidden">
                         <span className="relative z-10">{ctaPrimary}</span>
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000" />
                     </button>
@@ -42,27 +41,17 @@ export default function Hero({
                 </div>
             </div>
 
-            {/* ── Refined Scroll Indicator ── */}
-            <motion.button 
-                initial={{ opacity: 0 }}
-                animate={{ 
-                    opacity: [0.6, 0.9, 0.6],
-                    y: [0, 12, 0]
-                }}
-                transition={{ 
-                    duration: 1.8, 
-                    repeat: Infinity, 
-                    ease: "easeInOut" 
-                }}
+            {/* ── Scroll Indicator ── */}
+            <button 
                 onClick={() => {
                     const nextSection = document.getElementById('historia');
                     if (nextSection) {
                         nextSection.scrollIntoView({ behavior: 'smooth' });
                     }
                 }}
-                className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 cursor-pointer group scale-110 md:scale-125"
+                className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 cursor-pointer group scale-110 md:scale-125 opacity-70 hover:opacity-100 transition-opacity"
             >
-                <motion.svg 
+                <svg 
                     width="24" 
                     height="24" 
                     viewBox="0 0 24 24" 
@@ -74,11 +63,11 @@ export default function Hero({
                     className="text-white/80 group-hover:text-white transition-colors"
                 >
                     <path d="m6 9 6 6 6-6"/>
-                </motion.svg>
+                </svg>
                 <span className="text-[13px] font-bold text-white/80 group-hover:text-white uppercase tracking-[0.3em] transition-colors">
                     Scroll down
                 </span>
-            </motion.button>
+            </button>
         </section>
     );
 }

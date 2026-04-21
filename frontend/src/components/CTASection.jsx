@@ -30,7 +30,7 @@ export default function CTASection() {
                         Lleva tu operación<br className="hidden md:block" /> al siguiente nivel
                     </h2>
 
-                    <p className="opacity-80 md:text-2xl mb-14 mx-auto max-w-xl">
+                    <p className="text-white/90 text-[18px] mb-14 mx-auto max-w-xl">
                         Únete a las organizaciones que ya transforman su gestión con infraestructura tecnológica de clase enterprise.
                     </p>
 
@@ -62,7 +62,7 @@ export default function CTASection() {
                                 />
                                 <span className="text-white font-semibold text-lg tracking-wide hidden">B-TECH</span>
                             </a>
-                            <p className="text-gray-600 text-[13px] max-w-[220px] text-center md:text-left leading-relaxed">
+                            <p className="text-white/60 text-[13px] max-w-[220px] text-center md:text-left leading-relaxed">
                                 Infraestructura tecnológica para entornos críticos.
                             </p>
                         </div>

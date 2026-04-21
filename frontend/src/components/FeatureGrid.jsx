@@ -69,7 +69,7 @@ export default function FeatureGrid({ featuresFromApi }) {
                     <h2 className="text-gray-900 mb-8 lg:whitespace-nowrap">
                         La base de una operación digital real
                     </h2>
-                    <p className="md:whitespace-nowrap md:max-w-none mx-auto opacity-80 font-medium">
+                    <p className="md:whitespace-nowrap md:max-w-none mx-auto text-gray-800 text-[18px] font-medium">
                         Centraliza, automatiza y controla cada proceso con una arquitectura modular y escalable.
                     </p>
                 </motion.div>
@@ -93,7 +93,7 @@ export default function FeatureGrid({ featuresFromApi }) {
                                 {/* Minimalist Icon — Aligned on top axis */}
                                 <div className="mb-[16px] p-2 transition-all duration-500 min-h-[64px] flex items-center justify-center">
                                     <Icon 
-                                        className="w-10 h-10 md:w-12 md:h-12 text-gray-400/80 transition-colors duration-500 group-hover:text-violet" 
+                                        className="w-10 h-10 md:w-12 md:h-12 text-gray-500 transition-colors duration-500 group-hover:text-violet" 
                                         strokeWidth={1.2} 
                                     />
                                 </div>
@@ -104,7 +104,7 @@ export default function FeatureGrid({ featuresFromApi }) {
                                 </h3>
                                 
                                 {/* Description — Regular Gray / Centered and contained */}
-                                <p className="opacity-75 max-w-[240px] group-hover:text-gray-600 transition-colors duration-300">
+                                <p className="text-gray-700 text-[18px] max-w-[280px] group-hover:text-gray-900 transition-colors duration-300">
                                     {feat.desc}
                                 </p>
                             </motion.div>

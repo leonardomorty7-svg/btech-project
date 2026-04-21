@@ -52,7 +52,7 @@ export default function Clients() {
                     <h2 className="text-gray-900 mb-8 lg:whitespace-nowrap">
                         Organizaciones que operan con B-TECH.
                     </h2>
-                    <p className="opacity-80 lg:whitespace-nowrap">
+                    <p className="text-gray-800 text-[18px] lg:whitespace-nowrap">
                         Infraestructura digital implementada en entidades públicas y privadas de alta exigencia.
                     </p>
                 </motion.div>

@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavbarLight from '../components/light/NavbarLight.jsx';
+import HeroLight from '../components/light/HeroLight.jsx';
+import FeatureGridLight from '../components/light/FeatureGridLight.jsx';
+import SolutionsCardsLight from '../components/light/SolutionsCardsLight.jsx';
+import SystemDiagramLight from '../components/light/SystemDiagramLight.jsx';
+import BenefitsListLight from '../components/light/BenefitsListLight.jsx';
+import IndustriesLight from '../components/light/IndustriesLight.jsx';
+import IntegrationsLight from '../components/light/IntegrationsLight.jsx';
+import ClientsLight from '../components/light/ClientsLight.jsx';
+import CTASectionLight from '../components/light/CTASectionLight.jsx';
+import HeroStatementLight from '../components/light/HeroStatementLight.jsx';
+
+import { fetchSolutions, fetchSectors, fetchSuccessCases, fetchIntegrations, fetchFeatures } from '../lib/api.js';
+
+const solutions = await fetchSolutions();
+const sectors = await fetchSectors();
+const successCases = await fetchSuccessCases();
+const integrations = await fetchIntegrations();
+const features = await fetchFeatures();
+---
+
+<Layout title="BTECH LIGHT - Performance Optimized">
+	<NavbarLight client:load />
+    <main>
+        <HeroLight client:load />
+        <HeroStatementLight client:visible />
+        <FeatureGridLight featuresFromApi={features} client:visible />
+        <SolutionsCardsLight solutionsFromApi={solutions} client:visible />
+        <SystemDiagramLight client:visible />
+        <BenefitsListLight client:visible />
+        <IndustriesLight sectorsFromApi={sectors} client:visible />
+        <IntegrationsLight integrationsFromApi={integrations} client:visible />
+        <ClientsLight casesFromApi={successCases} client:visible />
+        <CTASectionLight client:visible />
+    </main>
+</Layout>
