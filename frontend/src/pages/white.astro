@@ -1,0 +1,476 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.jsx';
+import Hero from '../components/Hero.jsx';
+import FeatureGrid from '../components/FeatureGrid.jsx';
+import SolutionsCards from '../components/SolutionsCards.jsx';
+import SystemDiagram from '../components/SystemDiagram.jsx';
+import BenefitsList from '../components/BenefitsList.jsx';
+import Industries from '../components/Industries.jsx';
+import Integrations from '../components/Integrations.jsx';
+import ClientsLight from '../components/light/ClientsLight.jsx';
+import CTASection from '../components/CTASection.jsx';
+import HeroStatement from '../components/HeroStatement.jsx';
+
+import { fetchSolutions, fetchSectors, fetchSuccessCases, fetchIntegrations, fetchFeatures } from '../lib/api.js';
+
+const solutions = await fetchSolutions();
+const sectors = await fetchSectors();
+const successCases = await fetchSuccessCases();
+const integrations = await fetchIntegrations();
+const features = await fetchFeatures();
+---
+
+<Layout title="BTECH - Transformación Digital Segura (White Mode)">
+    <div data-theme="white">
+        <Navbar client:load />
+        <main>
+            <Hero client:load />
+            <HeroStatement client:visible />
+            <FeatureGrid featuresFromApi={features} client:visible />
+            <SolutionsCards solutionsFromApi={solutions} client:visible />
+            <SystemDiagram client:visible />
+            <BenefitsList client:visible />
+            <Industries sectorsFromApi={sectors} client:visible />
+            <Integrations integrationsFromApi={integrations} client:visible />
+            <ClientsLight variant="embedded" client:visible />
+            <CTASection client:visible />
+        </main>
+    </div>
+</Layout>
+
+<style is:global>
+    /* ── ISOLATED WHITE THEME OVERRIDES ── */
+    
+    [data-theme="white"] {
+        background-color: #ffffff;
+        color: #0a0a0a;
+    }
+
+    /* Target hardcoded dark backgrounds */
+    [data-theme="white"] .bg-\[\#03010C\],
+    [data-theme="white"] .bg-bg,
+    [data-theme="white"] .bg-surface,
+    [data-theme="white"] section.bg-\[\#03010C\],
+    [data-theme="white"] section.bg-bg,
+    [data-theme="white"] .bg-black\/40 {
+        background-color: #ffffff !important;
+    }
+
+    /* Target hardcoded light text - general case */
+    [data-theme="white"] .text-white,
+    [data-theme="white"] .text-white\/90,
+    [data-theme="white"] .text-white\/80,
+    [data-theme="white"] .text-white\/70,
+    [data-theme="white"] .text-white\/60,
+    [data-theme="white"] .text-white\/50,
+    [data-theme="white"] .text-white\/40,
+    [data-theme="white"] .text-gray-400,
+    [data-theme="white"] .text-gray-300,
+    [data-theme="white"] .text-gray-500,
+    [data-theme="white"] li[style*="color"] {
+        color: #0a0a0a !important;
+    }
+
+    /* PRESERVE white text on violet buttons */
+    [data-theme="white"] .bg-violet .text-white,
+    [data-theme="white"] .bg-violet span,
+    [data-theme="white"] .bg-violet .relative,
+    [data-theme="white"] button.bg-violet,
+    [data-theme="white"] .bg-\[\#4e2bcd\],
+    [data-theme="white"] .bg-violet,
+    [data-theme="white"] button[style*="background"] .text-white,
+    [data-theme="white"] button[style*="background"] span,
+    [data-theme="white"] button[style*="background"] svg,
+    [data-theme="white"] .bg-violet svg {
+        color: #ffffff !important;
+        stroke: #ffffff !important;
+    }
+
+    /* Secondary buttons (ghost/glass style) */
+    [data-theme="white"] .border-white\/20,
+    [data-theme="white"] .border-white\/10,
+    [data-theme="white"] .border-white\/5 {
+        border-color: rgba(0, 0, 0, 0.12) !important;
+        background-color: rgba(0, 0, 0, 0.04) !important;
+    }
+    
+    [data-theme="white"] button.border-white\/10,
+    [data-theme="white"] button.border-white\/5,
+    [data-theme="white"] .border-white\/10 .text-white,
+    [data-theme="white"] .bg-white\/5 {
+        color: #0a0a0a !important;
+    }
+
+    /* Specifically handle Hero secondary button */
+    [data-theme="white"] .text-white\/50 {
+        color: rgba(0, 0, 0, 0.6) !important;
+    }
+
+    [data-theme="white"] .text-white\/20,
+    [data-theme="white"] .text-white\/10 {
+        color: rgba(0, 0, 0, 0.25) !important;
+    }
+
+    /* Invert selection */
+    [data-theme="white"] ::selection {
+        background: rgba(78, 43, 205, 0.2);
+        color: #000;
+    }
+
+    /* Target borders */
+    [data-theme="white"] .border-white\/5,
+    [data-theme="white"] .border-white\/10,
+    [data-theme="white"] .border-violet\/20 {
+        border-color: rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* Target glass and surface backgrounds */
+    [data-theme="white"] .bg-white\/\[0\.02\],
+    [data-theme="white"] .bg-white\/\[0\.03\],
+    [data-theme="white"] .bg-white\/\[0\.04\],
+    [data-theme="white"] .bg-surface\/50,
+    [data-theme="white"] .bg-\[\#03010C\]\/60 {
+        background-color: rgba(0, 0, 0, 0.03) !important;
+    }
+
+    /* Hero Background Orbs - soften for white theme */
+    /* Target only div/span orbs, NOT buttons */
+    [data-theme="white"] div.bg-\[\#1a06a0\],
+    [data-theme="white"] div.bg-\[\#3b1fa0\],
+    [data-theme="white"] div.bg-\[\#2408c0\],
+    [data-theme="white"] div.bg-\[\#4e2bcd\],
+    [data-theme="white"] div.bg-\[\#2e1280\],
+    [data-theme="white"] div.bg-\[\#0d1a5e\],
+    [data-theme="white"] div.bg-\[\#1a0a6e\] {
+        opacity: 0.08 !important;
+        mix-blend-mode: multiply;
+    }
+
+    /* Ensure buttons stay solid */
+    [data-theme="white"] button.bg-violet,
+    [data-theme="white"] button.bg-\[\#4e2bcd\],
+    [data-theme="white"] .bg-violet,
+    [data-theme="white"] .bg-\[\#4e2bcd\] {
+        opacity: 1 !important;
+        background-color: #4e2bcd !important;
+    }
+
+    /* Navbar adjustments - Force true light mode */
+    [data-theme="white"] nav {
+        background: transparent !important;
+        backdrop-filter: none !important;
+        border-bottom: none !important;
+    }
+
+    /* Target the top floating Navbar specifically - ensure it doesn't leak to footer */
+    [data-theme="white"] nav.fixed > div {
+        background: rgba(255, 255, 255, 0.85) !important;
+        backdrop-filter: blur(16px) !important;
+        border-color: rgba(0, 0, 0, 0.08) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 0 0 0.5px rgba(0, 0, 0, 0.05) inset !important;
+    }
+
+    /* Flatten Footer Navigation - resolve collision with nav.fixed > div */
+    [data-theme="white"] section nav > div,
+    [data-theme="white"] section.flex-col div:not([class*="bg-violet"]):not([class*="bg-[#4e2bcd]"]):not([class*="bg-white/5"]) {
+        background-color: transparent !important;
+        background-image: none !important;
+        border-color: transparent !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        padding: 0 !important;
+    }
+
+    [data-theme="white"] section.flex-col .border-t {
+        border-top-color: rgba(0, 0, 0, 0.08) !important;
+        background: transparent !important;
+    }
+    
+    /* Restore padding for link columns that was removed by the broad 'padding: 0' above */
+    [data-theme="white"] section.flex-col nav > div {
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+    }
+    
+    [data-theme="white"] nav a {
+        color: #0a0a0a !important;
+    }
+
+    [data-theme="white"] nav .text-gray-400 {
+        color: rgba(0, 0, 0, 0.6) !important;
+    }
+
+    [data-theme="white"] nav a:hover {
+        background-color: rgba(0, 0, 0, 0.05) !important;
+        color: #000 !important;
+    }
+
+    /* Icons and Buttons in Navbar */
+    [data-theme="white"] nav button {
+        color: #0a0a0a !important;
+    }
+
+    [data-theme="white"] nav button.bg-violet,
+    [data-theme="white"] nav button[style*="background"] {
+        color: #ffffff !important;
+    }
+
+    [data-theme="white"] nav .text-white\/70 {
+        color: rgba(0, 0, 0, 0.7) !important;
+    }
+
+    [data-theme="white"] nav .hover\:bg-white\/10:hover {
+        background-color: rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* Dot Grid */
+    [data-theme="white"] .opacity-\[0\.05\],
+    [data-theme="white"] .opacity-\[0\.04\],
+    [data-theme="white"] .opacity-\[0\.03\],
+    [data-theme="white"] .opacity-\[0\.02\],
+    [data-theme="white"] .opacity-\[0\.01\] {
+        opacity: 0.15 !important;
+        filter: invert(1);
+    }
+
+    /* Logos */
+    [data-theme="white"] img[src*="negative"] {
+        filter: invert(1) brightness(0) !important; /* Pure black logo */
+    }
+
+    /* System Diagram Lines */
+    [data-theme="white"] .bg-white\/10 {
+        background-color: rgba(0, 0, 0, 0.15) !important;
+    }
+
+    /* Client logos (grayscale to color) */
+    [data-theme="white"] .filter.grayscale {
+        filter: grayscale(1) brightness(0.2) !important;
+        opacity: 0.5 !important;
+    }
+    
+    [data-theme="white"] .group:hover .filter.grayscale {
+        filter: grayscale(0) brightness(1) !important;
+        opacity: 1 !important;
+    }
+
+    /* Specific components like SystemDiagram labels */
+    [data-theme="white"] .text-gray-700 {
+        color: #444 !important;
+    }
+
+    /* Animations container tweaks */
+    [data-theme="white"] .glass {
+        background: rgba(255, 255, 255, 0.7) !important;
+        border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    }
+
+    /* SolutionVisual SVG elements */
+    [data-theme="white"] svg text {
+        fill: #000 !important;
+    }
+    
+    [data-theme="white"] svg circle[fill="transparent"] {
+        stroke-opacity: 0.4 !important;
+    }
+
+    /* Fix Hero scroll text */
+    [data-theme="white"] .text-\[13px\] {
+        color: #000 !important;
+    }
+
+    /* ── NEUTRALIZE DARK GRADIENTS & TRANSITIONS ── */
+    
+    /* Target and neutralize the bottom/top fades in Hero, HeroStatement, and other sections */
+    [data-theme="white"] .bg-gradient-to-t.from-\[\#03010C\]\/60,
+    [data-theme="white"] .bg-gradient-to-t.from-\[\#03010C\],
+    [data-theme="white"] .bg-gradient-to-b.from-\[\#03010C\],
+    [data-theme="white"] .bg-gradient-to-t.from-black\/60,
+    [data-theme="white"] .bg-gradient-to-b.from-black\/60,
+    [data-theme="white"] .bg-gradient-to-t,
+    [data-theme="white"] .bg-gradient-to-b,
+    [data-theme="white"] div[style*="linear-gradient(to bottom, #03010C"],
+    [data-theme="white"] div[style*="linear-gradient(to top, #03010C"],
+    [data-theme="white"] div[style*="linear-gradient(to bottom, rgb(3, 1, 12)"],
+    [data-theme="white"] div[style*="linear-gradient(to top, rgb(3, 1, 12)"] {
+        background: transparent !important;
+        background-image: none !important;
+        opacity: 0 !important;
+        display: none !important;
+    }
+
+    /* Neutralize section borders that might be dark */
+    [data-theme="white"] section,
+    [data-theme="white"] div {
+        border-color: rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* Target specific dark background elements that act as overlays */
+    [data-theme="white"] .absolute.inset-0.bg-black\/20,
+    [data-theme="white"] .absolute.inset-0.bg-black\/40,
+    [data-theme="white"] .absolute.inset-0.bg-\[\#03010C\]\/40 {
+        background-color: transparent !important;
+        opacity: 0 !important;
+    }
+
+    /* Footer link legibility */
+    [data-theme="white"] footer a,
+    [data-theme="white"] .text-gray-500,
+    [data-theme="white"] .text-white\/60 {
+        color: rgba(0, 0, 0, 0.7) !important;
+    }
+    
+    [data-theme="white"] footer a:hover {
+        color: #000 !important;
+    }
+
+    /* Improve secondary button in CTA/Footer */
+    [data-theme="white"] .bg-white\/5 {
+        background-color: rgba(0, 0, 0, 0.06) !important;
+        border-color: rgba(0, 0, 0, 0.15) !important;
+    }
+
+    /* ── SYSTEM DIAGRAM (Repositorio, BPM, etc.) ── */
+    [data-theme="white"] #que-hacemos + section, /* SystemDiagram is usually after FeatureGrid */
+    [data-theme="white"] section:has(h2:contains("¿Cómo funciona?")),
+    [data-theme="white"] section:nth-of-type(5) { /* Fallback selector */
+        background-color: #ffffff !important;
+    }
+
+    /* Title and Description contrast */
+    [data-theme="white"] section h3[style*="color"] {
+        color: #0a0a0a !important;
+    }
+
+    /* Active step overrides for titles and descriptions */
+    [data-theme="white"] section h3[style*="color: white"],
+    [data-theme="white"] section h3[style*="color: rgb(255, 255, 255)"],
+    [data-theme="white"] section h3.transition-all {
+        color: #000 !important;
+    }
+
+    [data-theme="white"] section p.text-white\/80,
+    [data-theme="white"] section p.text-white\/20,
+    [data-theme="white"] section p[class*="text-white"] {
+        color: rgba(0, 0, 0, 0.7) !important;
+    }
+
+    /* Icon Circles - more robust targeting */
+    [data-theme="white"] section div.rounded-full.flex.items-center.justify-center {
+        background-color: #f3f4f6 !important;
+        border-color: rgba(0, 0, 0, 0.12) !important;
+    }
+
+    /* Active Icon Circle shadow and border */
+    [data-theme="white"] .border-violet.shadow-\[0_0_28px_rgba\(78\,43\,205\,0\.45\)\] {
+        box-shadow: 0 0 20px rgba(78, 43, 205, 0.2) !important;
+        border-color: #4e2bcd !important;
+    }
+
+    [data-theme="white"] .border-\[\#2408c0\]\/25 {
+        border-color: rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Icons inside circles */
+    [data-theme="white"] section div.rounded-full svg {
+        color: #4b5563 !important; /* Inactive color */
+    }
+
+    [data-theme="white"] section div.rounded-full svg.text-white,
+    [data-theme="white"] section div.rounded-full svg[class*="text-white"] {
+        color: #4e2bcd !important; /* Active color */
+    }
+
+    /* Connector Lines */
+    [data-theme="white"] div[style*="background: rgba(36,8,192,0.25)"] {
+        background-color: rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* Step Numbers */
+    [data-theme="white"] .text-gray-700 {
+        color: rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* ── INTEGRATIONS DIAGRAM (Full Overhaul for Contrast) ── */
+    
+    /* Connection Lines */
+    [data-theme="white"] line {
+        stroke: rgba(108, 77, 255, 0.45) !important;
+        stroke-opacity: 0.6 !important;
+    }
+
+    [data-theme="white"] line[stroke-width="0.6"] {
+        stroke: #6a4cff !important;
+        stroke-opacity: 1 !important;
+    }
+
+    /* Animated Particles (Dots) - CRITICAL FIX */
+    [data-theme="white"] circle[fill="#cfbbef"] {
+        fill: #6C4DFF !important;
+        fill-opacity: 0.9 !important;
+        filter: drop-shadow(0 0 4px rgba(108, 77, 255, 0.6));
+    }
+
+    /* Central BT Node - Even more dominant */
+    [data-theme="white"] .absolute.left-1\/2.top-1\/2 > div.rounded-full.bg-\[\#4e2bcd\] {
+        background: #6C4DFF !important;
+        opacity: 1 !important;
+        box-shadow: 
+            0 0 60px rgba(108, 77, 255, 0.45), 
+            0 0 120px rgba(108, 77, 255, 0.25) !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    }
+
+    [data-theme="white"] .absolute.left-1\/2.top-1\/2 > div.rounded-full.bg-\[\#4e2bcd\] span {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        opacity: 1 !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Secondary nodes in Integrations - clearly visible but secondary */
+    [data-theme="white"] .w-24.h-24.rounded-2xl {
+        background-color: rgba(108, 77, 255, 0.06) !important;
+        border-color: rgba(108, 77, 255, 0.15) !important;
+    }
+
+    [data-theme="white"] .w-24.h-24.rounded-2xl span {
+        color: #0a0a0a !important;
+    }
+
+    [data-theme="white"] span.text-\[13px\] {
+        color: rgba(0, 0, 0, 0.7) !important;
+    }
+
+    /* ── CARD ICONS (Sectores & Soluciones) ── */
+    [data-theme="white"] #sectores svg,
+    [data-theme="white"] #soluciones svg,
+    [data-theme="white"] .rounded-2xl svg,
+    [data-theme="white"] .rounded-3xl svg {
+        color: #6C4DFF !important;
+        stroke: #6C4DFF !important;
+    }
+
+    /* Exceptions: ensure navbar/buttons/other icons don't get forced if they shouldn't */
+    [data-theme="white"] .bg-violet svg,
+    [data-theme="white"] button svg {
+        color: #ffffff !important;
+        stroke: #ffffff !important;
+    }
+
+    /* ── REMOVE TEXT OUTLINES IN ANIMATIONS ── */
+    [data-theme="white"] svg text,
+    [data-theme="white"] .animation text,
+    [data-theme="white"] .animation span,
+    [data-theme="white"] #integraciones span,
+    [data-theme="white"] #soluciones span,
+    [data-theme="white"] #sectores span {
+        stroke: none !important;
+        -webkit-text-stroke: 0 !important;
+        text-shadow: none !important;
+    }
+
+</style>
