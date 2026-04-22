@@ -179,7 +179,7 @@ export default function SolutionsCards({ solutionsFromApi }) {
                                         <SolutionVisual type={displayData[activeIndex - 1].id} />
 
                                         {/* Slide counter */}
-                                        <div className="absolute bottom-6 left-6 z-10">
+                                        <div className="absolute bottom-6 left-6 z-10 hidden">
                                             <div className="glass px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest text-violet uppercase border-violet/20 bg-[#03010C]/60 backdrop-blur-md">
                                                 0{activeIndex} / 0{displayData.length}
                                             </div>

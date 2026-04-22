@@ -49,7 +49,7 @@ export default function HeroLight({
                         nextSection.scrollIntoView({ behavior: 'smooth' });
                     }
                 }}
-                className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 cursor-pointer group scale-110 md:scale-125 opacity-70 hover:opacity-100 transition-opacity"
+                className="absolute bottom-16 md:bottom-20 left-0 w-full z-20 flex flex-col items-center justify-center gap-2 cursor-pointer group scale-110 md:scale-125 opacity-70 hover:opacity-100 transition-opacity"
             >
                 <svg 
                     width="24" 
