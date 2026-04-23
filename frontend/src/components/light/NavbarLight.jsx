@@ -61,7 +61,7 @@ export default function NavbarLight() {
                     </a>
                     
                     <button 
-                        className="relative px-5 py-2 rounded-full text-[13.5px] font-semibold text-white overflow-hidden group shadow-[0_4px_16px_rgba(78,43,205,0.35)]"
+                        className="hidden md:flex relative px-5 py-2 rounded-full text-[13.5px] font-semibold text-white overflow-hidden group shadow-[0_4px_16px_rgba(78,43,205,0.35)]"
                         style={{ background: 'linear-gradient(135deg, #4e2bcd 0%, #3a1fa0 100%)' }}
                     >
                         <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-out" />

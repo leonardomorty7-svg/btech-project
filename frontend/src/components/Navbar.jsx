@@ -87,7 +87,7 @@ export default function Navbar() {
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
                             transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                            className="relative px-5 py-2 rounded-full text-[13.5px] font-semibold text-white overflow-hidden group"
+                            className="hidden md:flex relative px-5 py-2 rounded-full text-[13.5px] font-semibold text-white overflow-hidden group"
                             style={{
                                 background: 'linear-gradient(135deg, #4e2bcd 0%, #3a1fa0 100%)',
                                 boxShadow: '0 0 0 1px rgba(106,76,255,0.35), 0 4px 16px rgba(78,43,205,0.35)'
