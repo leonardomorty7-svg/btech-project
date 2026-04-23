@@ -67,12 +67,12 @@ export default function SystemDiagram() {
                 </motion.div>
 
                 {/* Horizontally scrollable rail — prevents vertical stacking on narrow screens */}
-                <div className="w-full overflow-x-auto hide-scrollbar">
-                    <div className="relative flex items-start justify-between min-w-[720px] lg:min-w-full">
+                <div className="w-full overflow-hidden md:overflow-x-auto hide-scrollbar">
+                    <div className="relative flex flex-col md:flex-row items-center md:items-start justify-between gap-y-16 md:gap-y-0 md:min-w-[720px] lg:min-w-full">
 
                         {/* ─── Background connector line ─── */}
                         <div
-                            className="absolute z-0"
+                            className="hidden md:block absolute z-0"
                             style={{
                                 top: `${ICON_SIZE / 2 + 28}px`, /* 28px = number label height + gap */
                                 left: '12.5%',
@@ -84,7 +84,7 @@ export default function SystemDiagram() {
 
                         {/* ─── Scroll-driven fill line ─── */}
                         <motion.div
-                            className="absolute z-0 origin-left"
+                            className="hidden md:block absolute z-0 origin-left"
                             style={{
                                 top: `${ICON_SIZE / 2 + 28}px`,
                                 left: '12.5%',
@@ -107,8 +107,7 @@ export default function SystemDiagram() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.55, ease: "easeOut", delay: idx * 0.12 }}
-                                    className="relative z-10 flex flex-col items-center text-center"
-                                    style={{ width: `${100 / steps.length}%` }}
+                                    className="relative z-10 flex flex-col items-center text-center w-full md:w-1/4"
                                 >
                                     {/* Number */}
                                     <div className={`text-[13px] font-mono font-semibold tracking-[0.25em] mb-3 transition-colors duration-700

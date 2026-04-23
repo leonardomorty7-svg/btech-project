@@ -35,10 +35,10 @@ export default function CTASection() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <button className="bg-[#4e2bcd] hover:bg-[#5d38e0] transition-colors duration-300 px-10 py-4 rounded-full text-white font-semibold text-[17px] shadow-[0_0_40px_rgba(78,43,205,0.4)] hover:shadow-[0_0_60px_rgba(78,43,205,0.6)]">
+                        <button className="w-full max-w-[320px] mx-auto md:w-auto md:max-w-none md:mx-0 bg-[#4e2bcd] hover:bg-[#5d38e0] transition-colors duration-300 px-8 py-3.5 md:px-10 md:py-4 rounded-full text-white font-semibold text-[16px] md:text-[17px] shadow-[0_0_40px_rgba(78,43,205,0.4)] hover:shadow-[0_0_60px_rgba(78,43,205,0.6)]">
                             Solicitar demo
                         </button>
-                        <button className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 px-10 py-4 rounded-full text-white font-semibold text-[17px] backdrop-blur-sm">
+                        <button className="w-full max-w-[320px] mx-auto md:w-auto md:max-w-none md:mx-0 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 px-8 py-3 md:px-10 md:py-4 rounded-full text-white font-semibold text-[16px] md:text-[17px] backdrop-blur-sm">
                             Hablar con un experto
                         </button>
                     </div>

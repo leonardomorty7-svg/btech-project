@@ -38,13 +38,13 @@ export default function SystemDiagramLight() {
                     </p>
                 </div>
 
-                {/* Horizontal Layout */}
-                <div className="w-full overflow-x-auto hide-scrollbar">
-                    <div className="relative flex items-start justify-between min-w-[720px] lg:min-w-full animate-light-slide">
+                {/* Responsive Layout */}
+                <div className="w-full overflow-hidden md:overflow-x-auto hide-scrollbar">
+                    <div className="relative flex flex-col md:flex-row items-center md:items-start justify-between gap-y-16 md:gap-y-0 md:min-w-[720px] lg:min-w-full animate-light-slide">
                         
                         {/* Background connector line (Static but high contrast) */}
                         <div
-                            className="absolute z-0"
+                            className="hidden md:block absolute z-0"
                             style={{
                                 top: `${ICON_SIZE / 2 + 28}px`,
                                 left: '12.5%',
@@ -56,7 +56,7 @@ export default function SystemDiagramLight() {
                         />
 
                         {steps.map((step, idx) => (
-                            <div key={idx} className="relative z-10 flex flex-col items-center text-center" style={{ width: `${100 / steps.length}%` }}>
+                            <div key={idx} className="relative z-10 flex flex-col items-center text-center w-full md:w-1/4">
                                 {/* Number */}
                                 <div className="text-[13px] font-mono font-semibold tracking-[0.25em] mb-3 text-violet">
                                     {step.label}

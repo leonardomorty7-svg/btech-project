@@ -473,4 +473,11 @@ const features = await fetchFeatures();
         text-shadow: none !important;
     }
 
+    /* Fix spacing between CTA buttons and footer in White mobile */
+    @media (max-width: 767px) {
+        [data-theme="white"] .flex.flex-col.sm\:flex-row.justify-center.gap-4 {
+            margin-bottom: 3.5rem !important;
+        }
+    }
+
 </style>
